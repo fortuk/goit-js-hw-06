@@ -12,12 +12,8 @@ const images = [{
     },
 ];
 const listGallaryEL = document.querySelector('ul.gallery');
-const imageListEl = [];
+const markup = images
+    .map(image => `<li class="gallery-item flex-container"><img src="${image.url}" alt="${image.alt}" width="200"</li>`)
+    .join("");
 
-images.map(({ url, alt }) => {
-    const liItem = document.createElement('li');
-    liItem.insertAdjacentHTML('beforeend', `<img srC="${url}", alt="${alt}">`);
-    imageListEl.push(liItem);
-});
-console.log(imageListEl[2]);
-listGallaryEL.append(...imageListEl);
+listGallaryEL.insertAdjacentHTML("beforeend", markup);
